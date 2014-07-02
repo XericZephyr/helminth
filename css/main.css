@@ -1,0 +1,28 @@
+.container {
+	width: 640px;
+}
+
+div {
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.searchentry {
+	border-style: dashed;
+	cursor:hand;
+}
+
+span.current_page {
+	font-weight:bold;
+}
+
+span.page:hover {
+	color:#fc9a24;
+	cursor:pointer;
+}
+
+.searchentry:hover {
+	border-style: solid;
+	cursor:pointer;
+}
