@@ -1,5 +1,5 @@
 /* remote ajax v 0.1.1 author by XericZephyr */
-var rs = "http://ajaxproxy.sohuapps.com/ajax";
+var rs = "//ajaxproxy.sohuapps.com/ajax";
 
 (function($) {
     $.rajax = (function (url, obj) {
