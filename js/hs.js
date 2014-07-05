@@ -30,14 +30,13 @@ function search(pn) {
 function buildPager(total, cpn) {
 	cpn = parseInt(cpn);
 	total = parseInt(total);
-	var rn = $(".pager");
+	var rn = $(".pagination");
 	rn.empty();
 	for (var i=0; i < Math.ceil(total/20); i++) {
-		rn.append($('<span data-pn="'+(i*20)+'" class="page"> '+(i+1)+' </span>'));
+		rn.append($('<li data-pn="'+(i*20)+'"><a href="#">'+(i+1)+'</a></li>'));
 	}
-	$('[data-pn="'+cpn+'"]').attr('class', 'current_page');
-	$("span.current_page").off('click');
-	$("span.page").on('click', function (e) {
+	$('li[data-pn="'+cpn+'"]').addClass('active');
+	$('li[data-pn!="'+cpn+'"]').click(function (e) {
 		var tpn = $(e.currentTarget).attr('data-pn');
 		search(tpn);
 	});
@@ -48,13 +47,13 @@ function buildResultDOM(results) {
 	rn.empty();
 	for (i in results) {
 		result = results[i];
-		en = $('<div class="searchentry" data-index="'+i+'"></div>');
-		en.append('<div class="title">'+result['title']+'</div>');
-		en.append('<div class="author">'+result['author']+'</div>');
-		en.append('<div class="summary">'+result['summary']+'</div>');
+		en = $('<a class="list-group-item searchentry" data-index="'+i+'"></a>');
+		en.append('<strong class="title">'+result['title']+'</strong>');
+		en.append('<span class="author">  @'+result['author']+'</span>');
+		en.append('<blockquote class="summary">'+result['summary']+'</blockquote>');
 		rn.append(en);
 	}
-	$(".searchentry").on("click", function (e) {
+	$(".searchentry").click(function (e) {
 		var i = $(e.currentTarget).attr('data-index');
 		result = results[i];
 		gid = result['gid'];
@@ -68,12 +67,13 @@ function buildResultDOM(results) {
 					var gid = dobj['data']['gid'];
 					$('a#download').attr('href', 'http://npacking.baidu.com/novel/packing?gid='+gid);
 					$('a#download').text('下载TXT');
-					$('a#download').show();
+					$('a#download').removeClass("disabled");
 				} else {
 					$('a#download').removeAttr('href');
 					$('a#download').text('下载暂不可用');
-					$('a#download').show();
+					$('a#download').addClass("disabled");
 				}
+				$('a#download').show();
 			}
 		});
 		$.remodal.lookup[$('[data-remodal-id=reader]').data('remodal')].open();

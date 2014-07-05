@@ -2,47 +2,57 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" >
 	<link rel="stylesheet" type="text/css" href="css/jquery.remodal.css">
-	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<title>Helminth Search Engine for Chinese Novels</title>
 </head>
 <body>
 	<div class="container">
+	<div class="jumbotron">
 		<!-- header -->
 		<div class="heading">
-			<h1>Helminth Search Engine</h1>
+			<h2 class="text-center">Helminth Search Engine</h2>
 		</div>
 		
 		<!-- search box -->
-		<div class="searchbox">
-			<input id="searchkeyword" type="text"/>
-			<button id="searchbutton">Search</button>
+		<div class="searchbox input-group">
+			<input id="searchkeyword" class="form-control" type="text" value="斗破苍穹"/>
+			<span class="input-group-btn">
+				<button id="searchbutton" class="btn btn-default">Search</button>
+			</span>
 		</div>
 		
-		<!-- pager -->
-		<div class="pager"></div>
+		<!-- pagination -->
+		<div class="text-center">
+			<ul class="pagination"></ul>
+		</div>
 		
 		<!-- result -->
-		<div class="searchresult"></div>
+		<div class="searchresult list-group"></div>
 		
-		<!-- pager -->
-		<div class="pager"></div>
+		<!-- pagination -->
+		<div class="text-center">
+			<ul class="pagination"></ul>
+		</div>
 		
 		<!-- footer -->
-		<div class="footer"></div>
+		<div class="footer text-center">
+			<p>Powered by XericZephyr <a href="https://github.com/XericZephyr">@GitHub</a></p>
+		</div>
+	</div>
 	</div>
 
 	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="js/jquery.remodal.js"></script>
 	<script src="js/ra.js"></script>
 	<script src="js/hs.js"></script>
 	
 	<div class="remodal" data-remodal-id="reader"
 	    data-remodal-options='{ "hashTracking": false }'>
-	    <a id="online_read" target="_blank">在线阅读</a>
-	    <a id="download">下载暂不可用</a>
+	    <a id="online_read" class="btn btn-primary btn-lg" target="_blank">在线阅读</a>
+	    <a id="download" class="btn btn-primary btn-lg">下载暂不可用</a>
 	</div>
 </body>
 </html>
