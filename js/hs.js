@@ -1,7 +1,13 @@
 /*UI*/
 
 var defaultHeader = {"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"};
-$("#searchbutton")[0].addEventListener('click', function (e) {search();});
+$("#searchbutton").click(function (e) {search();});
+$("#searchkeyword").keypress(function (e) {
+	if ( e.which == 13 ) {
+	     e.preventDefault();
+	     search();
+	  }
+});
 
 function search(pn) {
 	(pn==undefined)?pn=0:false;
