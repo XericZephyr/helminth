@@ -49,6 +49,7 @@ function buildResultDOM(results) {
 		result = results[i];
 		en = $('<a class="list-group-item searchentry" data-index="'+i+'"></a>');
 		en.append('<strong class="title">'+result['title']+'</strong>');
+		tn = $('<span class="status"> ['+result['status']+'] </span>');tn.addClass("text-"+((result['status']=="完结")?"success":"danger"));en.append(tn);
 		en.append('<span class="author">  @'+result['author']+'</span>');
 		en.append('<blockquote class="summary">'+result['summary']+'</blockquote>');
 		rn.append(en);
