@@ -32,7 +32,9 @@ function buildPager(total, cpn) {
 	total = parseInt(total);
 	var rn = $(".pagination");
 	rn.empty();
-	for (var i=0; i < Math.ceil(total/20); i++) {
+	var maxPage = Math.ceil(total/20);
+	maxPage = (maxPage > 10)?10:maxPage;
+	for (var i=0; i < maxPage; i++) {
 		rn.append($('<li data-pn="'+(i*20)+'"><a href="#">'+(i+1)+'</a></li>'));
 	}
 	$('li[data-pn="'+cpn+'"]').addClass('active');
