@@ -1,4 +1,5 @@
 /* remote ajax v 0.1.1 author by XericZephyr */
+
 var rs = "https://proxy-xzapi.rhcloud.com/ajax";
 
 (function($) {
