@@ -1,5 +1,5 @@
 /* remote ajax v 0.1.1 author by XericZephyr */
-var rs = "http://xztestbed1.jd-app.com/ajax";
+var rs = "https://proxy-xzapi.rhcloud.com/ajax";
 
 (function($) {
     $.rajax = (function (url, obj) {
