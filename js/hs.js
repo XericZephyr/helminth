@@ -23,7 +23,8 @@ function search(pn) {
 					buildPager(dobj['total'], pn);
 					buildResultDOM(dobj['result']['search']);
 				}
-		}
+		},
+		timeout:2e4
 	});
 }
 
