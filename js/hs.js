@@ -17,7 +17,7 @@ function search(pn) {
 		url:url,
 		headers:defaultHeader,
 		success:function (data , textStatus ,jqXHR) {
-			var dobj=JSON.parse(data);
+			var dobj=JSON.parse(data.replace(/<!--[\s\S]*?-->/g, ''));
 			if (dobj['errno'] == 0) 
 				if (parseInt(dobj['total']) > 0) {
 					buildPager(dobj['total'], pn);
@@ -36,7 +36,7 @@ function buildPager(total, cpn) {
 	var maxPage = Math.ceil(total/20);
 	maxPage = (maxPage > 10)?10:maxPage;
 	for (var i=0; i < maxPage; i++) {
-		rn.append($('<li data-pn="'+(i*20)+'"><a href="#">'+(i+1)+'</a></li>'));
+		rn.append( $('<li data-pn="'+(i*20)+'"><a href="#">'+(i+1)+'</a></li>') );
 	}
 	$('li[data-pn="'+cpn+'"]').addClass('active');
 	$('li[data-pn!="'+cpn+'"]').click(function (e) {
@@ -48,11 +48,13 @@ function buildPager(total, cpn) {
 function buildResultDOM(results) {
 	var rn = $(".searchresult");
 	rn.empty();
-	for (i in results) {
-		result = results[i];
-		en = $('<a class="list-group-item searchentry" data-index="'+i+'"></a>');
+	for (var i in results) {
+		var result = results[i];
+		var en = $('<a class="list-group-item searchentry" data-index="'+i+'"></a>');
 		en.append('<strong class="title">'+result['title']+'</strong>');
-		tn = $('<span class="status"> ['+result['status']+'] </span>');tn.addClass("text-"+((result['status']=="完结")?"success":"danger"));en.append(tn);
+		var tn = $('<span class="status"> ['+result['status']+'] </span>');
+		tn.addClass("text-"+((result['status']=="完结")?"success":"danger"));
+		en.append(tn);
 		en.append('<span class="author">  @'+result['author']+'</span>');
 		en.append('<blockquote class="summary">'+result['summary']+'</blockquote>');
 		rn.append(en);
