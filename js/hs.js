@@ -69,7 +69,7 @@ function buildResultDOM(results) {
 			url: 'http://m.baidu.com/tc?srd=1&appui=alaxs&ajax=1&gid='+gid,
 			success: function (d, t, j) {
 				var dobj=JSON.parse(d);
-				if (!dobj['status'] && dobj['data']['hasCache']) {
+				if (dobj['status'] && dobj['data']['hasCache']) {
 					var gid = dobj['data']['gid'];
 					$('a#download').attr('href', 'http://npacking.baidu.com/novel/packing?gid='+gid);
 					$('a#download').text('下载TXT');
