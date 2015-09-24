@@ -23,4 +23,4 @@ Helminth是一个基于爬虫技术的中国网络小说搜索引擎。
 如果你热爱中国网络小说，而还在为找TXT下载烦恼的话，你可以试试Helminth。
 
 
-[Live DEMO](https://xericzephyr.github.io/helminth/)
+[Live DEMO](https://xuzheng.pw/helminth/)
